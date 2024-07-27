@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html{
+  min-height: 100vh;
+}
+body{
+  background: linear-gradient(135deg, #0F0F19, #111313); 
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* styles.css */
+.custom-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.custom-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px; /* Grosor del subrayado */
+  background-color: currentColor; /* Usa el color del texto */
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.custom-underline:hover::after {
+  transform: scaleX(1);
+}
+
+
+@keyframes fadeInFromRight {
+  0% { opacity: 0; transform: translateX(20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fadeInFromRight {
+  animation: fadeInFromRight 1s ease-out;
+}
+
+.animate-delay-0s {
+  animation-delay: 0s;
+}
+
+.animate-delay-1s {
+  animation-delay: 1s;
+}
+
+.animate-delay-2s {
+  animation-delay: 2s;
+}
+
+.animate-faster {
+  animation-duration: 0.8s; /* Ajusta la duración para hacer la animación más rápida */
+}
+
+
+
