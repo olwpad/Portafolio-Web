@@ -23,7 +23,7 @@ export const Detail = () => {
     </div> 
     
     <div className="p-2 mb-2 flex  justify-center">
-      <button className='md:p-4 p-2 bg-textPrimary rounded-xl'>Download cv</button>
+      <button className='md:p-4 p-2  bg-textPrimary rounded-xl shadow-lg shadow-cyan-500/50 transform transform-transition  duration-300 hover:scale-105'>Download cv</button>
     </div> 
   </div> 
   )

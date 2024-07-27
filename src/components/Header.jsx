@@ -31,7 +31,7 @@ export const Header = () => {
           <a href="#Sobre-mi" className="block md:inline animate__animated animate__fadeInDown text-primary custom-underline font-serif hover:text-accentHover">Sobre mi</a>
           <a href="#habilidades" className="block md:inline animate__animated animate__fadeInDown text-primary custom-underline font-serif hover:text-accentHover">Habilidades</a>
           <a href="#proyectos" className="block md:inline animate__animated animate__fadeInDown text-primary custom-underline font-serif hover:text-accentHover">Proyectos</a>
-          <a href="#educacion" className="block md:inline animate__animated animate__fadeInDown text-primary custom-underline font-serif hover:text-accentHover">Educación</a>
+          <a href="#Educacion" className="block md:inline animate__animated animate__fadeInDown text-primary custom-underline font-serif hover:text-accentHover">Educación</a>
           <a href="#contacto" className="block md:inline animate__animated animate__fadeInDown text-primary custom-underline font-serif hover:text-accentHover">Contacto</a>
         </nav>
       </div>
