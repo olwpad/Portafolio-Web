@@ -6,7 +6,12 @@ const Education = () => {
         city: 'BOGOTA',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit aenean turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos et urna.'
       },
-    
+      {
+        year: '2024',
+        title: 'Tecnologo en Analisis y desarrollo de software',
+        city: 'BOGOTA',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit aenean turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos et urna.'
+      },    
     ];
   
     return (

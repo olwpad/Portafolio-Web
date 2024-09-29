@@ -6,49 +6,50 @@ import { SiSpring, SiExpress, SiPython, SiMongodb, SiMysql } from 'react-icons/s
 import { RiJavascriptLine } from "react-icons/ri";
 
 export const ski = {
-    Lenguajes: [
-      { icon: <FaJava />, name: 'Java', level: 'Fundamentos' },
-      { icon: <SiPython />, name: 'Python', level: 'Fundamentos' },
-      { icon: <RiJavascriptLine />, name: 'Javascript', level: 'Fundamentos' },
-    ],
-    Backend: [
-      { icon: <SiSpring />, name: 'Spring Boot', level: 'Fundamentos' },
-      { icon: <SiExpress />, name: 'Express', level: 'Fundamentos' },
-      { icon: <SiMongodb />, name: 'MongoDB', level: 'Fundamentos' },
-      { icon: <SiMysql />, name: 'MySQL', level: 'Fundamentos' },
-    ],
-    Frontend: [
-      { icon: <FaReact />, name: 'React', level: 'Fundamentos' },
-      { icon: <FaHtml5 />, name: 'HTML', level: 'Fundamentos' },
-      { icon: <FaCss3Alt />, name: 'CSS', level: 'Fundamentos' },
-    ],
-    Herramientas: [
-      { icon: <FaTools />, name: 'Postman', level: 'Fundamentos' },
-    ],
-  };
+  Lenguajes: [
+    { icon: <FaJava className="text-blue-600" />, name: 'Java', level: 'Intermedio' },
+    { icon: <RiJavascriptLine className="text-yellow-500" />, name: 'Javascript', level: 'Intermedio' },
+  ],
+  Backend: [
+    { icon: <SiSpring className="text-green-600" />, name: 'Spring Boot', level: 'Intermedio' },
+    { icon: <SiExpress className="text.gray-700" />, name: 'Express', level: 'Intermedio' },
+    { icon: <SiMongodb className="text-green-400" />, name: 'MongoDB', level: 'Intermedio' },
+    { icon: <SiMysql className="text-blue-950" />, name: 'MySQL', level: 'Intermedio' },
+  ],
+  Frontend: [
+    { icon: <FaReact className="text-blue-500" />, name: 'React', level: 'Intemerdio' },
+    { icon: <FaHtml5 className="text-orange-600" />, name: 'HTML', level: 'Intermedio' },
+    { icon: <FaCss3Alt className="text-colorCSS" />, name: 'CSS', level: 'Intermedio' },
+  ],
+  Herramientas: [
+    { icon: <FaTools className="text-gray-700" />, name: 'Postman', level: 'Intermedio' },
+  ],
+};
 
-  export const Skills = () => {
+
+ const Skills = () => {
     return (
       <div className="skills-section flex flex-col items-center">
         <h2 className="text-3xl lg:text-4xl xl:text-4xl font-bold mb-4 lg:mb-6 xl:mb-8 text-textPrimary font-serif">
           Habilidades
         </h2>
-        <Tabs className="flex flex-col items-center">
+        <Tabs className="flex flex-col items-center mx-5">
           <TabList className="flex space-x-4 lg:space-x-6 xl:space-x-8 mb-4 lg:mb-6 xl:mb-8 cursor-pointer">
-            <Tab className="p-2 lg:p-3 xl:p-4 text-base lg:text-lg xl:text-xl bg-textPrimary font-serif text-white rounded   transform transition-transform duration-300 hover:-translate-y-2">
-              Lenguajes
-            </Tab>
-            <Tab className="p-2 lg:p-3 xl:p-4  text-base lg:text-lg xl:text-xl bg-textPrimary font-serif text-white rounded  transform transition-transform duration-300 hover:-translate-y-2">
-              Backend
-            </Tab>
-            <Tab className="p-2 lg:p-3 xl:p-4 text-base lg:text-lg xl:text-xl bg-textPrimary font-serif text-white rounded   transform transition-transform duration-300 hover:-translate-y-2">
-              Frontend
-            </Tab>
-            <Tab className="p-2 lg:p-3 xl:p-4 text-base lg:text-lg xl:text-xl bg-textPrimary font-serif text-white rounded  transform transition-transform duration-300 hover:-translate-y-2">
-              Herramientas
-            </Tab>
+          <Tab className="p-2 lg:p-3 xl:p-5 text-base lg:text-lg xl:text-xl bg-textPrimary font-serif text-white rounded transform transform-transition duration-300 hover:scale-105 focus:outline-none focus:ring-0 active:outline-none">
+            Lenguajes
+          </Tab>
+          <Tab className="p-2 lg:p-3 xl:p-5 text-base lg:text-lg xl:text-xl bg-textPrimary font-serif text-white rounded transform transform-transition duration-300 hover:scale-105 focus:outline-none focus:ring-0 active:outline-none">
+            Backend
+          </Tab>
+          <Tab className="p-2 lg:p-3 xl:p-5 text-base lg:text-lg xl:text-xl bg-textPrimary font-serif text-white rounded transform transform-transition duration-300 hover:scale-105 focus:outline-none focus:ring-0 active:outline-none">
+            Frontend
+          </Tab>
+          <Tab className="p-2 lg:p-3 xl:p-5 text-base lg:text-lg xl:text-xl bg-textPrimary font-serif text-white rounded transform transform-transition duration-300 hover:scale-105 focus:outline-none focus:ring-0 active:outline-none">
+            Herramientas
+          </Tab>
+
           </TabList>
-  
+
           <TabPanel>
             <Skillsmap skills={ski.Lenguajes} />
           </TabPanel>
@@ -66,3 +67,4 @@ export const ski = {
     );
   };
   
+  export default Skills;

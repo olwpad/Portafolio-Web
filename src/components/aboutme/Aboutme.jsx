@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Aboutme = () => {
+ const Aboutme = () => {
   return (
     <section className='flex justify-center items-center'>
       <div className='flex flex-col items-center sm:items-start'>
@@ -16,3 +16,5 @@ export const Aboutme = () => {
     </section>
   )
 }
+
+export default Aboutme;

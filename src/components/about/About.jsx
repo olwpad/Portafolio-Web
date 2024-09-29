@@ -1,8 +1,8 @@
 import { Detail } from './Detail';
 import { Detail2 } from './Detail2';
-export const About = () => {
+ const About = () => {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 p-10 md:p-20 gap-5 mt-9">
+    <section className="grid grid-cols-1 flex-col lg:grid-cols-2 p-10 md:p-20  mt-9">
       <Detail/>
       <div className="flex justify-center col-span-1 animate__animated animate__fadeIn md:mt-0 mt-10">
         <img
@@ -15,3 +15,5 @@ export const About = () => {
     </section>
   );
 };
+
+export default About;

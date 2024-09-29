@@ -1,34 +1,33 @@
-import Education from "./components/Education/Education";
-import { Header } from "./components/Header";
-import { Skills } from "./components/Skills/Skills";
-import { About } from "./components/about/About";
-import { Aboutme } from "./components/aboutme/Aboutme";
-import { Contacto } from "./components/contactame/Contact";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Portafolio from './Portafolio';
+import Dashboard from './Dashboard/Dashboard';
+import Login from './components/Login/Login';
+import PrivateRoute from './components/PrivateRoutes/PrivateRoute';
+import { AuthProvider } from './components/Context/context';
+;
 
-import { Projects } from "./components/projects/Projects";
 function App() {
   return (
-    <>
-      <Header />
-      <div className="h-screen" >
-        <About />
-      </div>
-      <div className="h-screen flex justify-center items-center" id="Sobre-mi">
-        <Aboutme />
-      </div>
-      <div className="h-screen flex justify-center md:items-center" id="habilidades">
-        <Skills />
-      </div>
-      <div className="h-screen flex justify-center md:items-center" id="proyectos">
-        <Projects/>
-      </div>
-      <div className="h-screen flex justify-center md:items-center" id="Educacion">
-        <Education/>
-      </div>
-      <div className="h-screen flex justify-center md:items-center" id="contacto">
-        <Contacto/>
-      </div>
-    </>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+
+          {/* Ruta privada para el Dashboard */}
+          <Route
+            path="/dashboard/*"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+  
+          {/* Cualquier otra ruta va a Portafolio */}
+          <Route path="*" element={<Portafolio />} />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
