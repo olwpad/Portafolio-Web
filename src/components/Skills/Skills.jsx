@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Skillsmap } from './Skillsmap';
 import { FaJava, FaReact, FaTools, FaHtml5, FaCss3Alt } from 'react-icons/fa';
-import { SiSpring, SiExpress, SiPython, SiMongodb, SiMysql } from 'react-icons/si';
+import { SiSpring, SiExpress, SiMongodb, SiMysql } from 'react-icons/si';
 import { RiJavascriptLine } from "react-icons/ri";
 
 export const ski = {
@@ -61,7 +61,7 @@ const Skills = () => {
             </button>
           ))}
         </div>
-        <div className="w-full p-4 md:p-6 bg-white rounded-lg ">
+        <div className="w-full p-4 md:p-6 bg-white rounded-lg h-64 md:h-auto">
           {renderTabPanel()}
         </div>
       </div>

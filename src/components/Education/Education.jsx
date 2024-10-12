@@ -25,8 +25,8 @@ const Education = () => {
                 <div className="absolute left-0 top-1 w-4 h-4 bg-textPrimary_transparent border-2 border-gray-300 rounded-full"></div>
                 <div className="ml-6 p-4 rounded-lg shadow-lg">
                   <span className="text-sm text-gray-400">{experience.year}</span>
-                  <h3 className="text-xl text-gray-500  font-semiboldy">{experience.title}</h3>
-                  <p className="text-md font-medium text-black">{experience.city}</p>
+                  <h3 className="text-xl text-black  font-semiboldy">{experience.title}</h3>
+                  <p className="text-md font-medium  text-gray-400 ">{experience.city}</p>
                   <p className="text-gray-400 mt-2 text-sm md:">{experience.description}</p>
                 </div>
               </div>

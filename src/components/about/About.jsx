@@ -13,7 +13,7 @@ const About = () => {
           <img
             src="/perfil.png"
             alt="Descripción de la imagen"
-            className="lg:h-[600px] object-cover rounded-lg animate-fadeInFromRight2 animate__delay-1s"
+            className="lg:h-[550px] object-cover rounded-lg animate-fadeInFromRight2 animate__delay-1s"
           />
         </div>
         <Detail2 />
