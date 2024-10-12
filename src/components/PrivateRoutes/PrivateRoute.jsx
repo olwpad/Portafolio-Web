@@ -13,5 +13,4 @@ function PrivateRoute({ children }) {
   // Si el usuario está autenticado, muestra el componente privado
   return isAuthenticated ? children : <Navigate to="/login" />;
 }
-
 export default PrivateRoute;

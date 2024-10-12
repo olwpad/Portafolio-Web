@@ -7,17 +7,21 @@
   margin: 0;
 }
 
-html{
+
+body {
   min-height: 100vh;
+  width: 100%;
+  background-color: #ffff;
 }
-body{
-  background: linear-gradient(135deg, #0F0F19, #111313); 
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 
-html {
-  scroll-behavior: smooth;
-}
+
 
 /* styles.css */
 .custom-underline {
@@ -31,8 +35,8 @@ html {
   left: 0;
   bottom: -2px;
   width: 100%;
-  height: 2px; /* Grosor del subrayado */
-  background-color: currentColor; /* Usa el color del texto */
+  height: 2px;
+  background-color: currentColor;
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -40,15 +44,31 @@ html {
 .custom-underline:hover::after {
   transform: scaleX(1);
 }
+.profile-img {
+  border: 4px solid #ffffff;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
 
 
-@keyframes fadeInFromRight {
-  0% { opacity: 0; transform: translateX(20px); }
+
+@keyframes fadeInFromRight2 {
+  0% { opacity: 0; transform: translateX(0); }
   100% { opacity: 1; transform: translateX(0); }
 }
 
+@keyframes fadeInFromRight {
+  0% { opacity: 0; transform: translateX(20); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+
 .animate-fadeInFromRight {
   animation: fadeInFromRight 1s ease-out;
+}
+
+
+.animate-fadeInFromRight2 {
+  animation: fadeInFromRight2 1s ease-out;
 }
 
 .animate-delay-0s {
@@ -64,7 +84,7 @@ html {
 }
 
 .animate-faster {
-  animation-duration: 0.8s; /* Ajusta la duración para hacer la animación más rápida */
+  animation-duration: 0.8s;
 }
 
 

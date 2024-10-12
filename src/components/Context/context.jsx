@@ -14,7 +14,6 @@ export function AuthProvider({ children }) {
           'Content-Type': 'application/json',
         },
       });
-      // El token se obtiene directamente de la respuesta
       localStorage.setItem('token', response.data.token);
       setIsAuthenticated(true);
       return true;
@@ -35,7 +34,6 @@ export function AuthProvider({ children }) {
       setLoading(false);
       return;
     }
-
     try {
       const response = await axios.get(`${API_URL.checkAuth}`, {
         headers: {

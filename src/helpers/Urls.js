@@ -1,7 +1,7 @@
 const URLBASE = 'http://localhost:3300/api';
 
  export const API_URL={
-    login: `${URLBASE}/Login`,
-    checkAuth: `${URLBASE}/check-token`,
+    login: `${URLBASE}/login`,
+    checkAuth: `${URLBASE}/checkToken`,
     logout: `${URLBASE}/logout`,
     };

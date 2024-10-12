@@ -3,7 +3,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#ffff',
+        primary: 'black',
         secondary: '#3c6e71',
         background: '#0F0F19',
         textPrimary: '#2B4B4F',
@@ -12,7 +12,8 @@ export default {
         primaryHover: '#357ABD',
         accentHover: '#357ABD',
         textPrimary_transparent: 'rgba(74, 144, 226, 0.5)',
-        colorCSS:"#42A5F5"
+        colorCSS:"#42A5F5",
+        title:"#A4C7F0"
       },
       fontFamily: {
         sans: ['Montserrat', 'sans-serif'],

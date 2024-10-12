@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import ScrollAnimation from "react-animate-on-scroll";
 import Header from "./components/Header";
 import About from "./components/about/About";
@@ -8,94 +7,64 @@ import Projects from "./components/projects/Projects";
 import Education from "./components/Education/Education";
 import Contacto from "./components/contactame/Contact";
 import Footer from "./Footer";
-
 function Portafolio() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const shouldAnimate = windowWidth > 768;
-
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <div className="h-screen">
-        <About />
-      </div>
 
-      <div className="h-screen flex justify-center items-center" id="Sobre-mi">
-        {shouldAnimate ? (
+      <main className="flex-grow">
+        <div className="min-h-screen flex justify-center items-center bg-gray-50" id="home">
+          <About />
+        </div>
+
+        <div className="min-h-screen flex justify-center items-center" id="Sobre-mi">
           <ScrollAnimation
             animateIn="animate__animated animate__fadeInUp"
             duration={0.8}
           >
             <Aboutme />
           </ScrollAnimation>
-        ) : (
-          <Aboutme />
-        )}
-      </div>
+        </div>
 
-      <div className="h-screen flex justify-center items-center" id="habilidades">
-        {shouldAnimate ? (
+        <div className="min-h-screen flex justify-center items-center" id="habilidades">
           <ScrollAnimation
             animateIn="animate__animated animate__fadeInUp"
             duration={0.8}
           >
             <Skills />
           </ScrollAnimation>
-        ) : (
-          <Skills />
-        )}
-      </div>
+        </div>
 
-      <div className="h-screen flex justify-center items-center" id="proyectos">
-        {shouldAnimate ? (
+        <div className="min-h-screen flex justify-center items-center" id="proyectos">
           <ScrollAnimation
             animateIn="animate__animated animate__fadeInUp"
             duration={0.8}
           >
             <Projects />
           </ScrollAnimation>
-        ) : (
-          <Projects />
-        )}
-      </div>
+        </div>
 
-      <div className="h-screen flex justify-center items-center" id="Educacion">
-        {shouldAnimate ? (
+        <div className="min-h-screen flex justify-center items-center" id="Educacion">
           <ScrollAnimation
             animateIn="animate__animated animate__fadeInUp"
             duration={0.8}
           >
             <Education />
           </ScrollAnimation>
-        ) : (
-          <Education />
-        )}
-      </div>
+        </div>
 
-      <div className="h-screen flex justify-center items-center" id="contacto">
-        {shouldAnimate ? (
+        <div className="min-h-screen flex justify-center items-center" id="contacto">
           <ScrollAnimation
             animateIn="animate__animated animate__fadeInUp"
             duration={0.6}
           >
             <Contacto />
           </ScrollAnimation>
-        ) : (
-          <Contacto />
-        )}
-      </div>
-      <div className="flex-shrink-0">
-  <Footer />
-</div>
+        </div>
+      </main>
 
-    </>
+      <Footer className="mt-auto" />
+    </div>
   );
 }
 

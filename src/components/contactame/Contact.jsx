@@ -21,10 +21,10 @@ import sendEmailJS from '../../helpers/email';
     return (
         <section className="">
             <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-                <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-center text-textSecondary">Contáctame</h2>
-                <p className="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Comunícate conmigo para cualquier consulta web</p>
+                <h2 className="text-3xl lg:text-4xl xl:text-4xl font-bold mb-4  text-blue-500 font-serif text-center">Contáctame</h2>
+                <p className="mb-4 lg:mb-4 font-light text-center text-gray-500 dark:text-gray-400 md:text-lg text-sm">Comunícate conmigo para cualquier consulta web</p>
                 {alertMessage && (
-                    <div className={`mb-4 p-4 rounded-lg text-white ${alertType === 'success' ? 'bg-textPrimary' : 'bg-red-500'}`}>
+                    <div className={`mb-4 p-4 rounded-lg text-white ${alertType === 'success' ? 'bg-title' : 'bg-red-500'}`}>
                         {alertMessage}
                     </div>
                 )}
