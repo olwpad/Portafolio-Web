@@ -1,33 +1,33 @@
-import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 import ProjectCard from './ProjectCard';
+import axios from 'axios';
+import { API_URL } from '../../helpers/Urls';
 
 const Projects = () => {
-  const projects = [
-    {
-      title: 'Barberías',
-      description: 'Una aplicación web para gestionar citas en barberías, permitiendo a los usuarios reservar horarios y a los propietarios administrar sus agendas.'
-    },
-    {
-      title: 'To Do',
-      description: 'Un gestor de tareas que permite a los usuarios crear, editar y eliminar tareas, con la opción de clasificarlas por categorías y marcar las completadas.'
-    },
-    {
-      title: 'Control de Gastos',
-      description: 'Una herramienta para el seguimiento de gastos personales, donde los usuarios pueden registrar sus gastos y obtener informes sobre su presupuesto mensual.'
-    },
-    {
-      title: 'Bar',
-      description: 'Un sistema de gestión para bares y restaurantes que facilita el manejo de pedidos, inventario y cuentas de los clientes en tiempo real.'
-    },
-    {
-      title: 'API de Clima',
-      description: 'Una API que proporciona datos meteorológicos en tiempo real, permitiendo a los desarrolladores acceder a información sobre el clima en diversas ubicaciones.'
-    },
-    {
-      title: 'API de Tareas',
-      description: 'Una API RESTful que permite a los desarrolladores crear y gestionar tareas a través de solicitudes HTTP, facilitando la integración en diversas aplicaciones.'
-    },
-  ];
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await axios.get(`${API_URL.Projects}`, {
+        });
+        console.log(response.data);
+        setProjects(response.data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  if (loading) return <div>Cargando...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <section className="p-5">
@@ -38,6 +38,7 @@ const Projects = () => {
             key={index}
             title={project.title} 
             description={project.description} 
+            url={project.url}
           />
         ))}
       </div>

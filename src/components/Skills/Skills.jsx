@@ -1,47 +1,57 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { API_URL } from '../../helpers/Urls';
 import { Skillsmap } from './Skillsmap';
-import { FaJava, FaReact, FaTools, FaHtml5, FaCss3Alt } from 'react-icons/fa';
-import { SiSpring, SiExpress, SiMongodb, SiMysql } from 'react-icons/si';
-import { RiJavascriptLine } from "react-icons/ri";
-
-export const ski = {
-  Lenguajes: [
-    { icon: <FaJava className="text-blue-600" />, name: 'Java', level: 'Intermedio' },
-    { icon: <RiJavascriptLine className="text-yellow-500" />, name: 'Javascript', level: 'Intermedio' },
-  ],
-  Backend: [
-    { icon: <SiSpring className="text-green-600" />, name: 'Spring Boot', level: 'Intermedio' },
-    { icon: <SiExpress className="text-gray-700" />, name: 'Express', level: 'Intermedio' },
-    { icon: <SiMongodb className="text-green-400" />, name: 'MongoDB', level: 'Intermedio' },
-    { icon: <SiMysql className="text-blue-950" />, name: 'MySQL', level: 'Intermedio' },
-  ],
-  Frontend: [
-    { icon: <FaReact className="text-blue-500" />, name: 'React', level: 'Intermedio' },
-    { icon: <FaHtml5 className="text-orange-600" />, name: 'HTML', level: 'Intermedio' },
-    { icon: <FaCss3Alt className="text-colorCSS" />, name: 'CSS', level: 'Intermedio' },
-  ],
-  Herramientas: [
-    { icon: <FaTools className="text-gray-700" />, name: 'Postman', level: 'Intermedio' },
-  ],
-};
 
 const Skills = () => {
-  const [activeTab, setActiveTab] = useState('Lenguajes');
+  const [skills, setSkills] = useState([]); // Estado para las habilidades
+  const [loading, setLoading] = useState(true); // Estado para manejar la carga
+  const [error, setError] = useState(null); // Estado para manejar errores
+  const [activeTab, setActiveTab] = useState('Herramientas'); // Estado para la pestaña activa
 
+  useEffect(() => {
+    const fetchSkills = async () => {
+      try {
+        const response = await axios.get(`${API_URL.Skills}`);
+        // Agrupar habilidades por categoría
+        const skillsData = response.data.reduce((acc, skill) => {
+          if (!acc[skill.category]) {
+            acc[skill.category] = { category: skill.category, items: [] };
+          }
+          acc[skill.category].items.push({
+            id: skill._id,
+            name: skill.name,
+            level: skill.level,
+            imageUrl: skill.imageUrlPublic,
+          });
+          return acc;
+        }, {});
+
+        // Convertir el objeto en un array
+        setSkills(Object.values(skillsData));
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSkills();
+  }, []);
+
+  // Función para renderizar el panel de pestañas
   const renderTabPanel = () => {
-    switch (activeTab) {
-      case 'Lenguajes':
-        return <Skillsmap skills={ski.Lenguajes} />;
-      case 'Backend':
-        return <Skillsmap skills={ski.Backend} />;
-      case 'Frontend':
-        return <Skillsmap skills={ski.Frontend} />;
-      case 'Herramientas':
-        return <Skillsmap skills={ski.Herramientas} />;
-      default:
-        return null;
+    const filteredSkills = skills.find(skill => skill.category === activeTab)?.items || [];
+
+    if (filteredSkills.length === 0) {
+      return <div>No hay habilidades disponibles en esta categoría.</div>;
     }
+
+    return <Skillsmap skills={filteredSkills} />;
   };
+
+  if (loading) return <div>Cargando...</div>;
+  if (error) return <div>Error: {error}</div>;
 
   return (
     <div className="skills-section flex flex-col items-center py-10 px-4 sm:px-6 lg:px-8 xl:px-10">
@@ -50,14 +60,14 @@ const Skills = () => {
       </h2>
       <div className="flex flex-col items-center w-full">
         <div className="flex flex-wrap justify-center mb-4">
-          {Object.keys(ski).map((tab) => (
+          {skills.map(skill => (
             <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
+              key={skill.category}
+              onClick={() => setActiveTab(skill.category)} // Cambiar pestaña
               className={`m-2 p-2 sm:p-3 lg:p-4 text-base sm:text-lg lg:text-xl font-serif rounded-lg transition-transform duration-300 transform hover:scale-105 focus:outline-none 
-                          ${activeTab === tab ? 'bg-blue-500 text-white' : 'bg-white text-gray-700'} shadow-md hover:shadow-lg`}
+                          ${activeTab === skill.category ? 'bg-blue-500 text-white' : 'bg-white text-gray-700'} shadow-md hover:shadow-lg`}
             >
-              {tab}
+              {skill.category}
             </button>
           ))}
         </div>

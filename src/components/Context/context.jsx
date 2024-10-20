@@ -3,9 +3,8 @@ import axios from 'axios';
 import { AuthContext } from './AuthContext';
 import { API_URL } from '../../helpers/Urls';
 export function AuthProvider({ children }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(null); // null indica que está cargando
-  const [loading, setLoading] = useState(true); // Estado de carga
-
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const login = async (credentials) => {
     try {
@@ -16,6 +15,7 @@ export function AuthProvider({ children }) {
       });
       localStorage.setItem('token', response.data.token);
       setIsAuthenticated(true);
+      
       return true;
     } catch (error) {
       console.error('Error during login:', error.response?.data?.message || error.message);
@@ -23,9 +23,6 @@ export function AuthProvider({ children }) {
       return false;
     }
   };
-  
-
-  // Verificar autenticación
   const checkAuth = async () => {
     const token = localStorage.getItem('token');
 
@@ -46,17 +43,14 @@ export function AuthProvider({ children }) {
       console.error('Token verification failed:', error);
       setIsAuthenticated(false);
     } finally {
-      setLoading(false); // Cambia el estado de carga cuando se completa la verificación
+      setLoading(false);
     }
   };
-
   // Cerrar sesión
   const logout = () => {
     localStorage.removeItem('token');
     setIsAuthenticated(false);
   };
-
-  // Verificar autenticación al montar el componente
   useEffect(() => {
     checkAuth();
   }, []);
@@ -67,8 +61,6 @@ export function AuthProvider({ children }) {
     </AuthContext.Provider>
   );
 }
-
-// Hook personalizado para usar el contexto de autenticación
 export function useAuth() {
   return useContext(AuthContext);
 }

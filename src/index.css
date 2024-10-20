@@ -54,6 +54,26 @@ html, body {
   transition: all 0.3s ease;
 }
 
+.swal2-styled {
+  background-color: #42A5F5 !important; /* Cambia el color de fondo */
+  color: white;
+}
+
+.custom-swal {
+  position: fixed !important; /* Asegura que esté posicionado de manera fija */
+  top: 20px; /* Distancia desde el borde superior */
+  right: 20px; /* Distancia desde el borde derecho */
+  z-index: 9999; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.swal2-popup {
+  position: fixed !important; /* Asegura que esté posicionado de manera fija */
+  top:300px; /* Distancia desde el borde superior */
+  right: 400px; /* Distancia desde el borde derecho */
+  z-index: 9999; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+
 @keyframes fadeInFromRight2 {
   0% { opacity: 0; transform: translateX(0); }
   100% { opacity: 1; transform: translateX(0); }
