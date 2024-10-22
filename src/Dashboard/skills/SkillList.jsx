@@ -1,4 +1,4 @@
-import SkillCard from "./SkillsCard"; // Asegúrate de que este componente maneje las habilidades
+import SkillCard from "./SkillsCard";
 
 const SkillsList = ({ _id, title = 'Título no disponible', level = 'Nivel no disponible', category = 'Categoría no disponible', imageUrl, fetchSkills, currentPage, setCurrentPage,name }) => {
   return (

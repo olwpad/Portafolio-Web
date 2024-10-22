@@ -4,9 +4,9 @@
 const URLBASE = 'http://localhost:3300/api';
 
  export const API_URL={
-    login: `${URLBASE}/login`,
-    checkAuth: `${URLBASE}/checkToken`,
-    logout: `${URLBASE}/logout`,
+   login: `${URLBASE}/login`,
+   checkAuth: `${URLBASE}/checkToken`,
+   logout: `${URLBASE}/logout`,
    Education: `${URLBASE}/education`,
    EducationView: `${URLBASE}/educationView`,
    EducationDel: `${URLBASE}/education`,
@@ -28,4 +28,13 @@ const URLBASE = 'http://localhost:3300/api';
    //images
    Images: `${URLBASE}/images/uploads`,
    Images2: `${URLBASE}/images`,
+   Images3: `${URLBASE}/images/uploads/profile`,
+
+   //HOME
+    Home: `${URLBASE}/homeData`,
+    Home1: `${URLBASE}/homeData1`,
+    HomeAdmin: `${URLBASE}/homeAdmin`,
+    HomeUpdate: `${URLBASE}/homeData`,
+    
+
  };

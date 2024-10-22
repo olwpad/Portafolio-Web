@@ -55,7 +55,7 @@ const ProjectCard = ({ title, description, url, _id, fetchProjects, currentPage,
               name="title"
               value={formData.title}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-gray-700 focus:outline-none focus:shadow-outline"
               placeholder="Título"
             />
             <input
@@ -63,14 +63,14 @@ const ProjectCard = ({ title, description, url, _id, fetchProjects, currentPage,
               name="url"
               value={formData.url}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-gray-700 focus:outline-none focus:shadow-outline"
               placeholder="URL del Proyecto"
             />
             <textarea
               name="description"
               value={formData.description}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-gray-700 focus:outline-none focus:shadow-outline"
               rows="3"
               placeholder="Descripción"
             ></textarea>

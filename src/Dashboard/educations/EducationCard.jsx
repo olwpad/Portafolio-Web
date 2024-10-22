@@ -59,7 +59,7 @@ const navigate = useNavigate();
               name="title"
               value={formData.title}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-gray-700 focus:outline-none focus:shadow-outline"
               placeholder="Título"
             />
             <input
@@ -67,14 +67,14 @@ const navigate = useNavigate();
               name="date"
               value={formData.date}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-gray-700 focus:outline-none focus:shadow-outlined"
             />
             <input
               type="text"
               name="city"
               value={formData.city}
               onChange={handleChange}
-              className="w-full p-2 border rounded"
+              className="w-full p-2 border rounded text-gray-700 focus:outline-none focus:shadow-outline"
               placeholder="Ciudad"
             />
             <textarea

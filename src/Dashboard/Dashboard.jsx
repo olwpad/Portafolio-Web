@@ -3,9 +3,10 @@ import SkillsAdmin from './skills/SkillsAdmin';
 import { ProjectsAdmin } from './proyects/ProjectsAdmin';
 import { EducationAdmin } from './educations/EducationAdmin';
 import HeaderAdmin from './HeaderAdmin';
+import HomeAdmin from './Home/HomeAdmin';
 
 const Dashboard = () => {
-  const [activeSection, setActiveSection] = useState('Skills');
+  const [activeSection, setActiveSection] = useState('skills');
 
   const handleSectionChange = (section) => {
     setActiveSection(section);
@@ -13,10 +14,7 @@ const Dashboard = () => {
 
   return (
     <div className="h-screen flex flex-col">
-      {/* Encabezado */}
       <HeaderAdmin />
-
-      {/* Contenedor principal con flexbox */}
       <div className="flex flex-grow">
         {/* Contenedor lateral */}
         <nav className="w-1/4 bg-gray-200 p-4 flex-shrink-0">
@@ -52,12 +50,21 @@ const Dashboard = () => {
                 Habilidades
               </button>
             </li>
+            <li>
+              <button
+                className={`block w-full text-left py-2 ${
+                  activeSection === 'home' ? 'bg-gray-300' : ''
+                }`}
+                onClick={() => handleSectionChange('home')}
+              >
+                inicio
+              </button>
+            </li>
           </ul>
         </nav>
 
         {/* Contenido principal */}
         <div className="flex-grow p-8 overflow-y-auto flex justify-center">
-  
           {activeSection === 'skills' && (
             <div className="flex justify-center items-center">
           <SkillsAdmin />
@@ -71,6 +78,12 @@ const Dashboard = () => {
           {activeSection === 'Education' && (
             <div className="flex justify-center items-center">
               <EducationAdmin />
+            </div>
+          )}
+             
+            {activeSection === 'home' && (
+            <div className="flex justify-center items-center">
+              <HomeAdmin />
             </div>
           )}
         </div>

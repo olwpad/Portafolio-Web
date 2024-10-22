@@ -8,12 +8,12 @@ import axios from 'axios';
 export const ProjectsAdmin = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [paginationLoading, setPaginationLoading] = useState(false); // Estado de carga para paginación
+  const [paginationLoading, setPaginationLoading] = useState(false);
   const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
     title: '',
     description: '',
-    url: '', // Asegúrate de incluir el campo URL en el estado
+    url: '',
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -28,7 +28,7 @@ export const ProjectsAdmin = () => {
     console.log('formData:', formData);
     try {
       await Project(formData, API_URL.Projects);
-      setFormData({ title: '', description: '', url: '' }); // Reinicia todos los campos
+      setFormData({ title: '', description: '', url: '' });
       fetchProjects();
     } catch (err) {
       console.error('Error al agregar proyecto:', err);
@@ -54,9 +54,9 @@ export const ProjectsAdmin = () => {
 
   const handlePageChange = async (page) => {
     setCurrentPage(page);
-    setPaginationLoading(true); // Inicia el estado de carga al cambiar de página
+    setPaginationLoading(true);
     await fetchProjects(page);
-    setPaginationLoading(false); // Termina el estado de carga después de la solicitud
+    setPaginationLoading(false);
   };
 
   useEffect(() => {

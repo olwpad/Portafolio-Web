@@ -27,7 +27,6 @@ const SkillsCard = ({ name, description, level, img, category, _id, fetchSkills,
     formDataToSend.append('name', name);
     formDataToSend.append('level',level); 
     formDataToSend.append('category',category); 
-    console.log('formDataToSend:', formDataToSend);
     if (image) {
       formDataToSend.append('image', image);
     } else {
